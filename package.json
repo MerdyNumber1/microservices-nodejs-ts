@@ -4,8 +4,8 @@
   "description": "My Moleculer-based microservices project",
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "dev": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js --hot --repl --config moleculer.config.ts services/**/*.service.ts",
-    "start": "moleculer-runner",
+    "dev": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js -e --hot --repl --config moleculer.config.ts services/**/*.service.ts",
+    "start": "moleculer-runner -e --instances=max dist/services/**/*.service.js --config dist/moleculer.config.js",
     "cli": "moleculer connect AMQP",
     "ci": "jest --watch",
     "test": "jest --coverage",
@@ -34,6 +34,7 @@
     "@types/mkdirp": "^1.0.0",
     "@types/node": "^13.9.8",
     "amqplib": "^0.5.5",
+    "dotenv": "^8.2.0",
     "moleculer": "^0.14.0",
     "moleculer-decorators": "^1.3.0",
     "moleculer-web": "^0.9.0",

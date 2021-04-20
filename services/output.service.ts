@@ -1,18 +1,25 @@
-import { Service as BaseService } from 'moleculer';
-import { Service, Action } from 'moleculer-decorators';
+import { Service as BaseService, Context } from 'moleculer';
+import { Service, Action, Method } from 'moleculer-decorators';
+import { RequestDTO } from 'services/dto';
 
 @Service({
   name: 'output',
-  settings: {
-    port: 3000,
-    routes: [
-      //...
-    ],
-  },
+  settings: {},
 })
 export default class OutputService extends BaseService {
-  @Action()
-  Login2(ctx: any) {
-    console.log(ctx);
+  @Action({
+    params: {
+      timestamp: 'number',
+      user: 'string',
+      message: 'string',
+    },
+  })
+  logRequest({ params }: Context<RequestDTO>) {
+    setTimeout(() => this.logMessage(params), params.message.length * 1e3);
+  }
+
+  @Method
+  logMessage(message: any) {
+    console.log(message);
   }
 }
