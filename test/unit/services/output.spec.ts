@@ -20,7 +20,7 @@ describe("Test 'output' service", () => {
   };
 
   describe("Test 'output to the console after a certain time'", () => {
-    it('should return response after waiting with max delay 1000ms', async (done) => {
+    it('should return response after waiting with max delay 1000 ms', async (done) => {
       const startTime = Date.now();
 
       await request(apiService.server)
@@ -33,6 +33,8 @@ describe("Test 'output' service", () => {
 
           if (latency > 0 && latency < 1000) {
             done();
+          } else {
+            throw new Error(`Response delay - ${latency} ms`);
           }
         });
     });
