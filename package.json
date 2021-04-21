@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.json",
     "dev": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js -e --hot --repl --config moleculer.config.ts services/**/*.service.ts",
-    "start": "moleculer-runner -e --instances=max dist/services/**/*.service.js --config dist/moleculer.config.js",
+    "start": "npm run build && moleculer-runner -e dist/services/**/*.service.js --config dist/moleculer.config.js",
     "cli": "moleculer connect AMQP",
     "ci": "jest --watch",
     "test": "jest --coverage",
