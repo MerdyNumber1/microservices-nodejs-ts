@@ -2,11 +2,13 @@ import { Service as BaseService } from 'moleculer';
 import ApiGateway from 'moleculer-web';
 import { Service } from 'moleculer-decorators';
 
+console.log(process.env.HTTP_PORT);
+
 @Service({
   name: 'api',
   mixins: [ApiGateway],
   settings: {
-    port: process.env.HTTP_PORT || 8080,
+    port: process.env.HTTP_PORT ?? 8080,
     routes: [
       {
         aliases: {
