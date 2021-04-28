@@ -5,6 +5,8 @@ import ApiService from './../../../services/api.service';
 import OutputService from '../../../services/output.service';
 import request from 'supertest';
 
+jest.setTimeout(30000);
+
 describe("Test 'output' service", () => {
   const broker = new ServiceBroker({ logger: false });
   const apiService = broker.createService(ApiService);
@@ -14,7 +16,7 @@ describe("Test 'output' service", () => {
   afterAll(() => broker.stop());
 
   const requestBody = {
-    message: '123',
+    message: 'long_message',
     user: 'alex',
     timestamp: Date.now(),
   };

@@ -1,4 +1,4 @@
-import { BrokerOptions, Errors, MetricRegistry, ServiceBroker } from 'moleculer';
+import { BrokerOptions, Errors, MetricRegistry } from 'moleculer';
 
 const brokerConfig: BrokerOptions = {
   // Namespace of nodes to segment your nodes on the same network.

@@ -5,6 +5,8 @@ import ApiService from './../../../services/api.service';
 import OutputService from '../../../services/output.service';
 import request from 'supertest';
 
+jest.setTimeout(30000);
+
 describe("Test 'api' service", () => {
   const broker = new ServiceBroker({ logger: false });
   const apiService = broker.createService(ApiService);
